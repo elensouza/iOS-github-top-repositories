@@ -21,15 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0YW-Z7-1db">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0YW-Z7-1db">
+                    <rect key="frame" x="20" y="44" width="374" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
-                <constraint firstItem="0YW-Z7-1db" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="FO1-PQ-c1R"/>
-                <constraint firstItem="0YW-Z7-1db" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bPv-Rp-ms2"/>
+                <constraint firstItem="0YW-Z7-1db" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="FO1-PQ-c1R"/>
+                <constraint firstItem="0YW-Z7-1db" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bPv-Rp-ms2"/>
                 <constraint firstAttribute="bottomMargin" secondItem="0YW-Z7-1db" secondAttribute="bottom" id="jD7-3i-20X"/>
                 <constraint firstItem="0YW-Z7-1db" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="mAc-xZ-KbD"/>
             </constraints>

@@ -26,7 +26,7 @@ protocol TopRepositoriesViewControllerContract {
 
 // MARK: - Class/Objects
 class TopRepositoriesViewController: UIViewController, TopRepositoriesViewControllerContract {
-   
+    
     
     static func instantiate() -> TopRepositoriesViewController {
         let vc = TopRepositoriesViewController(nibName: String(describing: TopRepositoriesViewController.self), bundle: nil)
@@ -41,7 +41,7 @@ class TopRepositoriesViewController: UIViewController, TopRepositoriesViewContro
     
     // MARK: - Vars
     private var canLoadMore: Bool = true
-
+    
     // MARK: - Lets
     var viewModel: TopRepositoriesViewModelContract?
     
@@ -53,7 +53,7 @@ class TopRepositoriesViewController: UIViewController, TopRepositoriesViewContro
         
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.registerNib(RepositoryTableViewCell.self)
+        tableView.registerNib(RepositoryTableViewCell.self)
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(reloadFirstPage), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
@@ -101,18 +101,33 @@ extension TopRepositoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         
-        if (self.viewModel?.repositories.count ?? 0) == 0 {
-            cell.contentView.showAnimatedGradientSkeleton()
-            tableView.isUserInteractionEnabled = false
-        } else if let item = self.viewModel?.repositories[indexPath.row] {
-            cell.contentView.stopSkeletonAnimation()
-            cell.textLabel?.text = "\(item.name)"
-            tableView.isUserInteractionEnabled = true
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as? RepositoryTableViewCell{
+            if (self.viewModel?.repositories.count ?? 0) == 0 {
+                cell.contentView.showAnimatedGradientSkeleton()
+                tableView.isUserInteractionEnabled = false
+                
+            } else {
+                cell.contentView.stopSkeletonAnimation()
+                cell.labelRepoName.text = self.viewModel?.repositories[indexPath.row].name
+                cell.labelAuthorName.text = self.viewModel?.repositories[indexPath.row].owner.login
+                cell.labelStars.text = "\(self.viewModel?.repositories[indexPath.row].stargazersCount ?? 0)"
+                tableView.isUserInteractionEnabled = true
+                return cell}
         }
-        
-        return cell
+        return UITableViewCell()
+        //        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        //
+        //        if (self.viewModel?.repositories.count ?? 0) == 0 {
+        //            cell.contentView.showAnimatedGradientSkeleton()
+        //            tableView.isUserInteractionEnabled = false
+        //        } else if let item = self.viewModel?.repositories[indexPath.row] {
+        //            cell.contentView.stopSkeletonAnimation()
+        //            cell.textLabel?.text = "\(item.name)"
+        //            tableView.isUserInteractionEnabled = true
+        //        }
+        //
+        //        return cell
     }
 }
 
@@ -120,7 +135,7 @@ extension TopRepositoriesViewController: UITableViewDelegate, UIScrollViewDelega
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
+        
         if maximumOffset - currentOffset <= 10.0 {
             if let current = self.viewModel?.currentPage,
                 current < 34 && self.canLoadMore {
