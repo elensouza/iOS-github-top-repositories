@@ -9,6 +9,7 @@
 // MARK: - Imports
 import UIKit
 import SkeletonView
+import Kingfisher
 
 // MARK: - Typealias
 
@@ -99,7 +100,12 @@ extension TopRepositoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.viewModel?.repositories.count ?? 0) == 0 ? 20 : (self.viewModel?.repositories.count ?? 0)
     }
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Top Repositórios"
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as? RepositoryTableViewCell{
@@ -110,29 +116,20 @@ extension TopRepositoriesViewController: UITableViewDataSource {
             } else {
                 cell.contentView.stopSkeletonAnimation()
                 cell.labelRepoName.text = self.viewModel?.repositories[indexPath.row].name
-                cell.labelAuthorName.text = self.viewModel?.repositories[indexPath.row].owner.login
+                cell.labelAuthorName.text = "By: " + String(describing:(self.viewModel?.repositories[indexPath.row].owner.login ?? ""))
                 cell.labelStars.text = "\(self.viewModel?.repositories[indexPath.row].stargazersCount ?? 0)"
+                let url = URL(string: self.viewModel?.repositories[indexPath.row].owner.avatarUrl ?? "")
+                cell.authorImgView.kf.setImage(with: url)
                 tableView.isUserInteractionEnabled = true
                 return cell}
         }
         return UITableViewCell()
-        //        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        //
-        //        if (self.viewModel?.repositories.count ?? 0) == 0 {
-        //            cell.contentView.showAnimatedGradientSkeleton()
-        //            tableView.isUserInteractionEnabled = false
-        //        } else if let item = self.viewModel?.repositories[indexPath.row] {
-        //            cell.contentView.stopSkeletonAnimation()
-        //            cell.textLabel?.text = "\(item.name)"
-        //            tableView.isUserInteractionEnabled = true
-        //        }
-        //
-        //        return cell
     }
 }
 
 extension TopRepositoriesViewController: UITableViewDelegate, UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
@@ -143,4 +140,5 @@ extension TopRepositoriesViewController: UITableViewDelegate, UIScrollViewDelega
             }
         }
     }
+   
 }

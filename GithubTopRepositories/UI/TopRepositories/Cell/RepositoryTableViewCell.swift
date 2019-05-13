@@ -13,6 +13,7 @@ class RepositoryTableViewCell: UITableViewCell {
 
     
 
+  
     @IBOutlet weak var authorImgView: UIImageView!
     @IBOutlet weak var labelRepoName: UILabel!
     @IBOutlet weak var labelAuthorName: UILabel!
@@ -28,6 +29,8 @@ class RepositoryTableViewCell: UITableViewCell {
         viewBorder.layer.shadowOpacity = 3
         viewBorder.layer.shadowOffset = CGSize.zero
         viewBorder.layer.shadowRadius = 2
+        
+        authorImgView.layer.cornerRadius = 25
 
     }
 

@@ -7,7 +7,8 @@ target 'GithubTopRepositories' do
   
   # Pods for GithubTopRepositories
   pod 'Moya', '~> 13.0'
-  pod "SkeletonView"
+  pod 'SkeletonView'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'GithubTopRepositoriesTests' do
     inherit! :search_paths

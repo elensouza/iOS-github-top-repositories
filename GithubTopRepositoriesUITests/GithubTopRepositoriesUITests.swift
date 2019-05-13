@@ -1,6 +1,6 @@
 //
-//  GitTopUsersUITests.swift
-//  GitTopUsersUITests
+//  GithubTopRepositoriesUITests.swift
+//  GithubTopRepositoriesUITests
 //
 //  Created by Elen de Souza on 10/05/19.
 //  Copyright © 2019 Elen de Souza. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class GitTopUsersUITests: XCTestCase {
+class GithubTopRepositoriesUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

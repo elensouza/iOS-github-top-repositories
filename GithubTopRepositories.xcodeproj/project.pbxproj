@@ -23,8 +23,8 @@
 		1C7FCB7122864153008BABDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FCB7022864153008BABDB /* AppDelegate.swift */; };
 		1C7FCB7822864155008BABDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FCB7722864155008BABDB /* Assets.xcassets */; };
 		1C7FCB7B22864155008BABDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7FCB7922864155008BABDB /* LaunchScreen.storyboard */; };
-		1C7FCB8622864155008BABDB /* GitTopUsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FCB8522864155008BABDB /* GitTopUsersTests.swift */; };
-		1C7FCB9122864155008BABDB /* GitTopUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FCB9022864155008BABDB /* GitTopUsersUITests.swift */; };
+		1C7FCB8622864155008BABDB /* GithubTopRepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FCB8522864155008BABDB /* GithubTopRepositoriesTests.swift */; };
+		1C7FCB9122864155008BABDB /* GithubTopRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FCB9022864155008BABDB /* GithubTopRepositoriesUITests.swift */; };
 		5E5DDFC299FB66B83F76B395 /* Pods_GithubTopRepositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD954474688347940C8F3B26 /* Pods_GithubTopRepositories.framework */; };
 		6E74E32979330B48290B0EB4 /* Pods_GithubTopRepositoriesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A259FA144BDE0D004796C161 /* Pods_GithubTopRepositoriesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -66,10 +66,10 @@
 		1C7FCB7A22864155008BABDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C7FCB7C22864155008BABDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7FCB8122864155008BABDB /* GithubTopRepositoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubTopRepositoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C7FCB8522864155008BABDB /* GitTopUsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTopUsersTests.swift; sourceTree = "<group>"; };
+		1C7FCB8522864155008BABDB /* GithubTopRepositoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTopRepositoriesTests.swift; sourceTree = "<group>"; };
 		1C7FCB8722864155008BABDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7FCB8C22864155008BABDB /* GithubTopRepositoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubTopRepositoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C7FCB9022864155008BABDB /* GitTopUsersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitTopUsersUITests.swift; sourceTree = "<group>"; };
+		1C7FCB9022864155008BABDB /* GithubTopRepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubTopRepositoriesUITests.swift; sourceTree = "<group>"; };
 		1C7FCB9222864155008BABDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69BEFEEF1CA2EC3D5A3D6982 /* Pods-GithubTopRepositories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopRepositories.debug.xcconfig"; path = "Target Support Files/Pods-GithubTopRepositories/Pods-GithubTopRepositories.debug.xcconfig"; sourceTree = "<group>"; };
 		72956AB5EFA9F2C4E4963BF9 /* Pods-GithubTopRepositoriesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTopRepositoriesTests.release.xcconfig"; path = "Target Support Files/Pods-GithubTopRepositoriesTests/Pods-GithubTopRepositoriesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		1C7FCB8422864155008BABDB /* GithubTopRepositoriesTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C7FCB8522864155008BABDB /* GitTopUsersTests.swift */,
+				1C7FCB8522864155008BABDB /* GithubTopRepositoriesTests.swift */,
 				1C7FCB8722864155008BABDB /* Info.plist */,
 			);
 			path = GithubTopRepositoriesTests;
@@ -254,7 +254,7 @@
 		1C7FCB8F22864155008BABDB /* GithubTopRepositoriesUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1C7FCB9022864155008BABDB /* GitTopUsersUITests.swift */,
+				1C7FCB9022864155008BABDB /* GithubTopRepositoriesUITests.swift */,
 				1C7FCB9222864155008BABDB /* Info.plist */,
 			);
 			path = GithubTopRepositoriesUITests;
@@ -491,6 +491,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-GithubTopRepositories/Pods-GithubTopRepositories-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
@@ -500,6 +501,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
@@ -534,7 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7FCB8622864155008BABDB /* GitTopUsersTests.swift in Sources */,
+				1C7FCB8622864155008BABDB /* GithubTopRepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7FCB9122864155008BABDB /* GitTopUsersUITests.swift in Sources */,
+				1C7FCB9122864155008BABDB /* GithubTopRepositoriesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
