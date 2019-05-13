@@ -106,22 +106,26 @@ extension TopRepositoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Top Repositórios"
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryTableViewCell", for: indexPath) as? RepositoryTableViewCell{
             if (self.viewModel?.repositories.count ?? 0) == 0 {
-                cell.contentView.showAnimatedGradientSkeleton()
+                cell.contentView.startSkeletonAnimation()
+                cell.showAnimatedSkeleton()
                 tableView.isUserInteractionEnabled = false
                 
             } else {
-                cell.contentView.stopSkeletonAnimation()
+                cell.stopSkeletonAnimation()
                 cell.labelRepoName.text = self.viewModel?.repositories[indexPath.row].name
                 cell.labelAuthorName.text = "By: " + String(describing:(self.viewModel?.repositories[indexPath.row].owner.login ?? ""))
                 cell.labelStars.text = "\(self.viewModel?.repositories[indexPath.row].stargazersCount ?? 0)"
                 let url = URL(string: self.viewModel?.repositories[indexPath.row].owner.avatarUrl ?? "")
                 cell.authorImgView.kf.setImage(with: url)
                 tableView.isUserInteractionEnabled = true
-                return cell}
+                return cell
+                
+            }
         }
         return UITableViewCell()
     }

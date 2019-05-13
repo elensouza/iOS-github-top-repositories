@@ -91,6 +91,9 @@
                             <constraint firstItem="dj4-nJ-LKS" firstAttribute="centerY" secondItem="vRd-vD-43r" secondAttribute="centerY" id="hpU-Lj-NEd"/>
                             <constraint firstItem="c1f-kr-GyV" firstAttribute="centerX" secondItem="zyo-wF-uEA" secondAttribute="centerX" id="lrx-vY-Fiq"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -103,6 +106,9 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="authorImgView" destination="dj4-nJ-LKS" id="IrW-fn-kog"/>
                 <outlet property="labelAuthorName" destination="CaI-In-02u" id="Kcs-x1-WxA"/>
